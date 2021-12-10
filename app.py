@@ -17,6 +17,7 @@ import csv
 app = Flask(__name__)
 
 class CallAPI:
+
     def __init__(self,ingredient,health,diet,exclude) -> None:
         super().__init__()
         self.ingredient = ingredient
@@ -24,11 +25,11 @@ class CallAPI:
         self.diet = diet
         self.exclude = exclude
 
-@app.route("/", methods=['GET','POST']) #browser sends a GET request first
+@app.route("/", methods=['GET','POST']) 
 def home():
-    if request.method == 'GET':
-        return render_template("index.html") #loading the website using GET request 
-    if request.method=='POST': #getting values
+    if request.method == 'GET':  #GET request is sent first to get web browser
+        return render_template("index.html") 
+    if request.method=='POST': #POST request to send the input info
         if 'usersfood' and 'userdietary' and 'userhealth' and 'userexclusion' in request.form:
            
             ingredient=request.form["usersfood"].lower()
@@ -43,7 +44,7 @@ def home():
         return render_template('recipes.html',hits=hits)
 
 
-def call_api():
+def call_api(): # Gets response from api
     ingredient=request.form["usersfood"].lower()
     diet=request.form['userdietary'].lower()
     health=request.form['userhealth'].lower()
@@ -57,7 +58,7 @@ def call_api():
              
 ## return the template with info as query strings. request.query[] ingred=ingred&diet=diet&health=health&​​
 
-def list_recipe():
+def list_recipe(): # currently not showing in terminal
     hits = call_api()
     r= call_api()
     recipe_info=[]

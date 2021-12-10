@@ -7,28 +7,28 @@
 <h1>Recipe results for {{ ingredient }}</h1>
 
 <ul>
- {% for hit in hits %}
+ {% for hit in hits %}   <!-- for loop to for all information in api dict-->
     <h3>{{ hit.recipe.label }}</h3>
 <div class="images"></div>
         <img src="{{hit.recipe.image}}" class="align-self-center mr-3" alt="..." width="15%" height="15%"><br>
         Ingredients list:
-        {% for ingredient in hit.recipe.ingredients %}
+        {% for ingredient in hit.recipe.ingredients %} <!-- for loop to for ingredient information -->
         <ul>{{ ingredient.text }}</ul>
         {% endfor %}
         Calorie count:
-        <br><ul>{{ hit.recipe.calories}}</ul>
+        <br><ul>{{ hit.recipe.calories}}</ul> <!-- to get calories -->
         Diet label:
-        <ul>{{ hit.recipe.dietLabels}}</ul>
+        <ul>{{ hit.recipe.dietLabels}}</ul> <!-- to get diet labels -->
         Total time:
-        <ul>{{ hit.recipe.totalTime}}</ul>
-        Nutrients:
+        <ul>{{ hit.recipe.totalTime}}</ul> <!-- to get totalTime: currently showing 0 -->
+        Nutrients: <!-- to get nutritional values (round is used to get the rounded number for quantity)-->
             <ul>{{hit.recipe.totalNutrients.ENERC_KCAL.label }} {{hit.recipe.totalNutrients.ENERC_KCAL.quantity|round }} {{hit.recipe.totalNutrients.ENERC_KCAL.unit }}</ul>
             <ul>{{hit.recipe.totalNutrients.FAT.label}} {{hit.recipe.totalNutrients.FAT.quantity|round}} {{hit.recipe.totalNutrients.FAT.unit}}</ul>
             <ul>{{hit.recipe.totalNutrients.SUGAR.label}} {{hit.recipe.totalNutrients.SUGAR.quantity|round}} {{hit.recipe.totalNutrients.SUGAR.unit}}</ul>
             <ul>{{hit.recipe.totalNutrients.PROCNT.label}} {{hit.recipe.totalNutrients.PROCNT.quantity|round}} {{hit.recipe.totalNutrients.PROCNT.unit}}</ul>
             <ul>{{hit.recipe.totalNutrients.VITC.label}} {{hit.recipe.totalNutrients.VITC.quantity|round}} {{hit.recipe.totalNutrients.VITC.unit}}</ul>
         link to recipe:
-        <a href="{{hit.recipe.link}}" target="_blank" class="href"></a>
+        <a href="{{hit.recipe.link}}" target="_blank" class="href"></a> <!-- currently not showing on web browser -->
 {% endfor %}
  </ul>
 
