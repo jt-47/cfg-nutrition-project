@@ -11,6 +11,7 @@ from werkzeug.utils import redirect
 from werkzeug.wrappers import response
 import urllib.request
 import csv
+# import error_handling
 
 
 
@@ -42,7 +43,10 @@ def home():
             print(exclude)
             hits = call_api()
         return render_template('recipes.html',hits=hits)
+    
 
+
+    
 
 def call_api(): # Gets response from api
     ingredient=request.form["usersfood"].lower()
@@ -58,12 +62,15 @@ def call_api(): # Gets response from api
              
 ## return the template with info as query strings. request.query[] ingred=ingred&diet=diet&health=health&​​
 
-def list_recipe(): # currently not showing in terminal
-    hits = call_api()
-    r= call_api()
+def list_recipe(ingredient,health,diet,exclude): # currently not showing in terminal
+
     recipe_info=[]
-    recipe = dict()
-    for i in range(1,20):
+    hits = call_api()
+    r =  call_api()
+    info= call_api(ingredient,health,diet,exclude)
+
+    for i in range(20):
+        recipe = dict()
         recipe["recipe_name"]=hits[i]['recipe']['label']
         recipe["image"] = r["hits"][i]["recipe"]["image"]
         recipe["recipe_ingredients"] = r["hits"][i]["recipe"]["ingredients"]
@@ -76,9 +83,12 @@ def list_recipe(): # currently not showing in terminal
         recipe["allergies"] = r["hits"][i]["recipe"]['cautions']
         recipe["link"] = r["hits"][i]["recipe"]['url']
         
+        
         recipe_info.append(recipe)
         print(recipe)
-    return recipe(hits=hits,r=r)
+        return recipe
+
+
 
 if __name__== "__main__":
     app.run(debug=True)

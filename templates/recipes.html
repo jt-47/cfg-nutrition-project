@@ -28,13 +28,10 @@
             <ul>{{hit.recipe.totalNutrients.PROCNT.label}} {{hit.recipe.totalNutrients.PROCNT.quantity|round}} {{hit.recipe.totalNutrients.PROCNT.unit}}</ul>
             <ul>{{hit.recipe.totalNutrients.VITC.label}} {{hit.recipe.totalNutrients.VITC.quantity|round}} {{hit.recipe.totalNutrients.VITC.unit}}</ul>
         link to recipe:
-        <a href="{{hit.recipe.link}}" target="_blank" class="href"></a> <!-- currently not showing on web browser -->
-{% endfor %}
+        <a href="{{hit.recipe.url}}" target="_blank">{{hit.recipe.url}} </a>
+         <!-- currently not showing on web browser -->
+{% endfor %} 
  </ul>
 
 </body>
 </html>
-
-<!-- {% for item in items %}
-    <img class="card-img-top" src="{{url_for('static',filename='img/uploads/' + item.id + '.jpg')}}" alt="img">
-{% endfor %} -->
