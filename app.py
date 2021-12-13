@@ -37,17 +37,9 @@ def home():
             diet=request.form['userdietary'].lower()
             health=request.form['userhealth'].lower()
             exclude=request.form['userexclusion'].lower()
-            print(ingredient)
-            print(diet)
-            print(health)
-            print(exclude)
             hits = call_api()
         return render_template('recipes.html',hits=hits)
     
-
-
-    
-
 def call_api(): # Gets response from api
     ingredient=request.form["usersfood"].lower()
     diet=request.form['userdietary'].lower()
