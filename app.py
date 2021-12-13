@@ -60,35 +60,6 @@ def call_api(): # Gets response from api
     hits=r['hits']
     return hits
              
-## return the template with info as query strings. request.query[] ingred=ingred&diet=diet&health=health&​​
-
-def list_recipe(ingredient,health,diet,exclude): # currently not showing in terminal
-
-    recipe_info=[]
-    hits = call_api()
-    r =  call_api()
-    info= call_api(ingredient,health,diet,exclude)
-
-    for i in range(20):
-        recipe = dict()
-        recipe["recipe_name"]=hits[i]['recipe']['label']
-        recipe["image"] = r["hits"][i]["recipe"]["image"]
-        recipe["recipe_ingredients"] = r["hits"][i]["recipe"]["ingredients"]
-        recipe["calories"] = r["hits"][i]["recipe"]["calories"]
-        recipe["Energy"] = r["hits"][i]["recipe"]['totalNutrients']['ENERC_KCAL']
-        recipe["Fat"] = r["hits"][i]["recipe"]['totalNutrients']['FAT']
-        recipe["Sugar"] = r["hits"][i]["recipe"]['totalNutrients']['SUGAR']
-        recipe["Protein"] = r["hits"][i]["recipe"]['totalNutrients']['PROCNT']
-        recipe["Vitamn C"] = r["hits"][i]["recipe"]['totalNutrients']['VITC']
-        recipe["allergies"] = r["hits"][i]["recipe"]['cautions']
-        recipe["link"] = r["hits"][i]["recipe"]['url']
-        
-        
-        recipe_info.append(recipe)
-        print(recipe)
-        return recipe
-
-
 
 if __name__== "__main__":
     app.run(debug=True)
