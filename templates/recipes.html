@@ -13,10 +13,10 @@
         <img src="{{hit.recipe.image}}" class="align-self-center mr-3" alt="..." width="15%" height="15%"><br>
         Ingredients list:
         {% for ingredient in hit.recipe.ingredients %} <!-- for loop to for ingredient information -->
-        <ul>{{ ingredient.text }}</ul>
+        <ul>{{ ingredient.text}}</ul>
         {% endfor %}
         Calorie count:
-        <br><ul>{{ hit.recipe.calories}}</ul> <!-- to get calories -->
+        <br><ul>{{ hit.recipe.calories|round}}</ul> <!-- to get calories -->
         Diet label:
         <ul>{{ hit.recipe.dietLabels}}</ul> <!-- to get diet labels -->
         Total time:

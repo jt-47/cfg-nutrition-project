@@ -1,10 +1,11 @@
 from os import DirEntry
 from PIL import Image
 from flask import Flask, render_template, request, url_for
-# import pandas as pd  
+import pandas as pd  
 import requests
 import json
 from jinja2 import Environment, FileSystemLoader
+from requests import api
 from requests.api import get
 import templates
 from werkzeug.utils import redirect
@@ -16,15 +17,6 @@ import csv
 
 
 app = Flask(__name__)
-
-class CallAPI:
-
-    def __init__(self,ingredient,health,diet,exclude) -> None:
-        super().__init__()
-        self.ingredient = ingredient
-        self.health = health
-        self.diet = diet
-        self.exclude = exclude
 
 @app.route("/", methods=['GET','POST']) 
 def home():
@@ -45,14 +37,23 @@ def call_api(): # Gets response from api
     diet=request.form['userdietary'].lower()
     health=request.form['userhealth'].lower()
     exclude=request.form['userexclusion'].lower()
+    recipe_infor=[]
     API_ID = "71b68ced"
     API_KEY = "e23ca4a79da18cff7d516f5e539033e4"
     response = requests.get(f'https://api.edamam.com/api/recipes/v2?type=public&beta=true&q={ingredient}&app_id={API_ID}&app_key={API_KEY}&diet={diet}&health={health}&time=10&imageSize=REGULAR&excluded={exclude}')
     r= response.json()
     hits=r['hits']
+    recipe_infor.append(hits)
+    df = pd.DataFrame.from_dict(recipe_infor)
+    df.to_csv (r'gen.csv', index = False, header=True)
     return hits
-             
+
+
+
+
+        
+
+                
 
 if __name__== "__main__":
     app.run(debug=True)
-
