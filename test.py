@@ -1,6 +1,10 @@
 import unittest
 from unittest import TestCase
 import app
+import json
+import requests
+
+
 
 def addTwoNumbers(a,b):
     return a+b
@@ -8,24 +12,26 @@ def addTwoNumbers(a,b):
 
 class FlaskTests(unittest.TestCase):
 
-    def test_add(self):
-        c= addTwoNumbers(5,10)
-        self.assertEqual(c,15)
-        
-
-    def test_index(self):
-        tester=app.home(self)
-        response=tester.get('/')
-        statuscode=response.status_code
-        self.assertEqual(statuscode,200)
+    def test_status(self):
+        #Arrange
+        url='https://api.edamam.com/api/recipes/v2?type=public&beta=true&app_id=71b68ced&app_key=e23ca4a79da18cff7d516f5e539033e4'
+        #Act
+        response=requests.get(url)
+        r=response.json()
+        #Assert
+        assert response.status_code ==200 
 
 
-    # def test_frontpage(self):
-    #         """Test static frontpage"""
+    def test_api(self):
+        #Arrange
+        url='https://api.edamam.com/api/recipes/v2?type=public&beta=true&app_id=71b68ced&app_key=e23ca4a79da18cff7d516f5e539033e4'
+        #Act
+        response=requests.get(url)
+        r=response.json()
+        #Assert 
+        assert r['hits'] == 'hits'
 
-    #         result = self.client.get("/")
 
-    #         self.assertIn("Enter", result.data)
 
 if __name__ == "__main__":
     unittest.main()
