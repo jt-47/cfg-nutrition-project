@@ -43,16 +43,19 @@ def call_api(): # Gets response from api
 
         
     response = requests.get(f'https://api.edamam.com/api/recipes/v2?type=public&beta=true&q={ingredient}&app_id={API_ID}&app_key={API_KEY}&diet={diet}&health={health}&time=10&imageSize=REGULAR&excluded={exclude}')
-        
+
     try:
-        response.raise_for_status()
-    except Exception as exc:
-        print ("There was a problem: {}".format(exc))
+        if response.status_code == 200:
+            r = response.json()
+        elif response.status_code != 200:
+            print ("bad status code")
+    except Exception as e:
+        raise
 
-    r= response.json()
     hits=r['hits']
-
     return hits
+
+
 
 @app.errorhandler(404)
 def not_found_error(error):
