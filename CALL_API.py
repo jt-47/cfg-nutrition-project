@@ -14,14 +14,17 @@ from werkzeug.wrappers import response
 import csv
 import requests
 import pandas as pd
+from Recipe_class import Recipe
+
 
 class CallAPI:
 
-    app_id = "9bda37b4"
-    app_key = "3a045b9095af03671e2b052783e9e68a"
+    API_ID = "71b68ced"
+    API_KEY = "e23ca4a79da18cff7d516f5e539033e4"
     recipe_info = []
     response = None
     recipe_table = None
+
 
     def __init__(self, ingredient, health, diet, exclude):
         self.ingredient = ingredient
@@ -31,20 +34,15 @@ class CallAPI:
         self.database = []
 
     def call_api(self):
-        self.response = requests.get(f'https://api.edamam.com/api/recipes/v2?q={self.ingredient}&app_key=%20{self.app_key}%09&_cont=CHcVQBtNNQphDmgVQntAEX4BYldtBAAFS2xJBmAbZlVwAAIAUXlSAGEVNQMiBApRRDZGV2AQZAF0UQIPSmJIVmoaawZ6AFEVLnlSVSBMPkd5BgMbUSYRVTdgMgksRlpSAAcRXTVGcV84SU4%3D&type=public&app_id={self.app_id}&diet={self.diet}&health={self.health}&excluded={self.exclude}')
-        
-        r = self.response.json()
-
-        for item in range(20):
-            hits=r['hits']
-        return hits
+        self.response = requests.get(f'https://api.edamam.com/api/recipes/v2?type=public&beta=true&q={self.ingredient}&app_id={self.API_ID}&app_key={self.API_KEY}&diet={self.diet}&health={self.health}&time=10&imageSize=REGULAR&excluded={self.exclude}').json()
+        return self.response['hits']
         
     def get_recipe_info(self):
 
         for i in range(20):
             recipe = dict()
 
-            recipe["recipe_name"] = self.response["hits"][i]["recipe"]["label"]
+            recipe["recipe_name"] = self.response["hits"][i][0]["recipe"]["label"]
             recipe["image"] = self.response["hits"][i]["recipe"]["image"]
             recipe["recipe_ingredients"] = self.response["hits"][i]["recipe"]["ingredientLines"]
             recipe["calories"] = round(self.response["hits"][i]["recipe"]["calories"], 2)
@@ -52,6 +50,10 @@ class CallAPI:
             recipe["allergies"] = self.response["hits"][i]["recipe"]['cautions']
 
             self.recipe_info.append(recipe)
+
+            recipe_dict = dict()
+            for i in range(1, 21):
+                recipe_dict[f'Recipe {i}'] = Recipe(api.recipe_info[i-1]["recipe_name"], api.recipe_info[i-1]["image"], api.recipe_info[i-1]["recipe_ingredients"], api.recipe_info[i-1]["calories"], api.recipe_info[i-1]["total_nutrients"], api.recipe_info[i-1]["allergies"])
 
 
     def check_ingredient(self, *args):
@@ -101,3 +103,6 @@ class CallAPI:
             recipe_index = recipe_list.index(recipe)
             self.database[recipe_index] = [recipe, review, rating]
         pd.DataFrame(self.database, columns=["Recipe name", "Review", "Rating"]).to_csv("database.csv", index=False)
+        rating_recipes=pd.read_csv("database.csv")
+        rating_recipes.to_html('ratings.html', escape=False)
+

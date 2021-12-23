@@ -10,7 +10,7 @@
 
 
 <ul>
- {% for hit in hits %}   for loop to for all information in api dict
+ {% for hit in hits %}   <!-- for loop to for all information in api dict -->
     <h3>{{ hit.recipe.label }}</h3>
 <div class="images"></div>
         <img src="{{hit.recipe.image}}" class="align-self-center mr-3" alt="..." width="15%" height="15%"><br>
@@ -40,10 +40,14 @@
         <a href="{{hit.recipe.url}}" target="_blank">{{hit.recipe.url}} </a>
 {% endfor %} 
 <form action="/recipes/add"  target = '_blank'method="POST">
+  What is your name?
+  <input type="text" name="name" id="name">
   Which recipe would you like to review:
-  <input type="text" name="review" id="review">
+  <input type="text" name="recipe" id="recipe">
   Please input your rating from 1 to 5:
-  <input type="text" name="rating" id="rating" placeholder>
+  <input type="text" name="rating" id="recipe" placeholder>
+  Leave a review:
+  <input type="text" name="review" id="review" placeholder>
   <input type='submit'>
 </form>
         </div>
