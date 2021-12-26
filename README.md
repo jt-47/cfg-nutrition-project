@@ -1,5 +1,7 @@
 # CFG-Easy-Eats-Project
 
+The final version of the project is in the easyeats branch
+
 This project is a nutrition-based program that allows users to input their dietary preferences, nutritional restrictions (i.e. gluten-free, vegan, vegetarian, pork-free etc) and primary ingredients they would like to incorporate; and return suitable recipes that fit their criteria. Easy Eats will return 20 generated recipes that lists the key nutritional values and ingredients
 
 **Install the following to run the program:**
