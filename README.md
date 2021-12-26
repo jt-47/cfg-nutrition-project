@@ -5,6 +5,7 @@ This project is a nutrition-based program that allows users to input their dieta
 **Requirements to run this program:**
 To run this website the following need to be installed:
 - pip install Flask
+- pip install templates
 - pip install requests
 - pip install pandas
 - pip install jinja2
