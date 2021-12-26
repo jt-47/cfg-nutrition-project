@@ -11,6 +11,10 @@ To run this website the following need to be installed:
 - pip install unittest
 - pip3 install Werkzeug
 
+APP_ID='' APP_KEY=''
+
+The APP_ID and APP_KEY are unique keys that can be generated on https://developer.edamam.com/
+
 # Website video demo
 
 
