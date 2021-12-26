@@ -1,14 +1,13 @@
 import requests
 import pandas as pd
-from Recipe_class import Recipe
 
 class CallAPI:
 
     app_id = "9bda37b4"
     app_key = "3a045b9095af03671e2b052783e9e68a"
 
-    def __init__(self, username, query, health, diet, excluded):
-        self.username = username
+    def __init__(self, query, health, diet, excluded):
+        # self.username = username
         self.query = query
         self.health = health
         self.diet = diet
@@ -18,17 +17,17 @@ class CallAPI:
         self.response = None
         self.recipe_table = None
 
-        self.df = pd.read_csv("database.csv", index_col=0)
+        # self.df = pd.read_csv("database.csv", index_col=0)
 
-        for i in range(self.df.shape[0]):
-            self.database.append(list(self.df.iloc[i]))
+        # for i in range(self.df.shape[0]):
+        #     self.database.append(list(self.df.iloc[i]))
 
     def call_api(self):
         self.response = requests.get(f'https://api.edamam.com/api/recipes/v2?q={self.query}&app_key=%20{self.app_key}%09&_cont=CHcVQBtNNQphDmgVQntAEX4BYldtBAAFS2xJBmAbZlVwAAIAUXlSAGEVNQMiBApRRDZGV2AQZAF0UQIPSmJIVmoaawZ6AFEVLnlSVSBMPkd5BgMbUSYRVTdgMgksRlpSAAcRXTVGcV84SU4%3D&type=public&app_id={self.app_id}&diet={self.diet}&health={self.health}&excluded={self.excluded}').json()
 
         hits=self.response['hits']
         return hits
-
+        
     def get_recipe_info(self):
 
         if self.response["hits"] == []:

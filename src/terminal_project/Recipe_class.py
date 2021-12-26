@@ -1,3 +1,5 @@
+
+   
 class Recipe:
     def __init__(self, recipe_name, image, recipe_ingredients, calories, total_nutrients, allergies):
         self.recipe_name = recipe_name

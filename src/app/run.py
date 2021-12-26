@@ -11,7 +11,7 @@ from werkzeug.utils import format_string, redirect
 from werkzeug.wrappers import response
 import csv
 from CALL_API import CallAPI
-from main import main
+# from main import main
 
 
 app = Flask(__name__)
@@ -40,21 +40,21 @@ def home():
 """Aim was to call the database from the ask_user method and show it on the ratings.html page. 
 However we encountered a few errors. The database is visable through the main.py file"""
 
-@app.route("/recipes/add", methods=['POST']) #POST request sent to accept the user inputs
-def ratings():
+# @app.route("/recipes/add", methods=['POST']) #POST request sent to accept the user inputs
+# def ratings():
     
-    if request.method == 'POST':
-        if 'recipe_num' and 'review' in request.form:
-            rating=request.form["rating"]
-            review=request.form["review"]
-            name=request.form["name"]
-            recipe=request.form["recipe"]
+#     if request.method == 'POST':
+#         if 'recipe_num' and 'review' in request.form:
+#             rating=request.form["rating"]
+#             review=request.form["review"]
+#             name=request.form["name"]
+#             recipe=request.form["recipe"]
         
-            ca=CallAPI(name,rating,review,name)
-                # if ca.ask_user.recipe_num == ca.ask_user.recipe_num:
+#             ca=CallAPI(name,rating,review,name)
+#                 # if ca.ask_user.recipe_num == ca.ask_user.recipe_num:
 
 
-        return render_template('ratings.html')
+#         return render_template('ratings.html')
 
 @app.route("/aboutus", methods=['GET'])
 def about_us():
@@ -76,4 +76,4 @@ def not_found_error(error):
 
 
 if __name__== "__main__":
-    app.run()  #Remove the Debug=True when the flask app is finished to see the 500 error page
+    app.run(debug=True)  #Remove the Debug=True when the flask app is finished to see the 500 error page

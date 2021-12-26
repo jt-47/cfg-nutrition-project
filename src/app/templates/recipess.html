@@ -17,9 +17,6 @@
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a href="recipess.html" class="nav-link">Recipes</a>
-        </li>
-        <li class="nav-item">
           <form action="/aboutus" method="GET">
             <a href="{{url_for('about_us')}}" class="nav-link">About Us</a>
             </form>
@@ -41,16 +38,7 @@
   <h5 class="card-title">{{ hit.recipe.label }}</h5>
 
     <img src="{{hit.recipe.image}}" class="card-img-top" alt="..." ><br>
-    <!-- <div class="card-body">
-     <h5 class="card-title">{{ hit.recipe.label }}</h5>  -->
-      
-      <!-- <ul>
-        <li><span class="icon icon-users"></span><span></span></li>
-        <li><span class="icon icon-clock"></span><span></span></li>
-        <li><span class="icon icon-level"></span><span></span></li>
-        <li><span class="icon icon-calories"></span><span></span></li>
-      </ul> -->
-<!-- </div> -->
+
   
 <div class="nutrition-bubble-flat-value" style="background-image: linear-gradient(to top, rgb(228, 236, 236) 13%, rgb(245, 245, 245) 13%);">
         <span class="value font-light"></span>
@@ -114,10 +102,11 @@
       </ul>
       <a href="{{hit.recipe.url}}" target="_blank" class="btn btn-secondary">Recipe link</a>
     </div>
+    {% endfor %} 
 </div>
-{% endfor %} 
 
-<form action="/recipes/add"  target = '_blank'method="POST">
+
+<!-- <form action="/recipes/add"  target = '_blank'method="POST">
   What is your name?
   <input type="text" name="name" id="name">
   Which recipe would you like to review:
@@ -127,15 +116,17 @@
   Leave a review:
   <input type="text" name="review" id="review" placeholder>
   <input type='submit'>
-</form>
+</form> -->
 
-<footer class="page-footer font-small black" style="margin-top: 50%;">
-  <div class="footer-copyright text-center py-3">© 2021 Copyright: EasyEats.com
-  </div>
-</footer>
+
 
   <script
   src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"
 ></script>  
+<footer class="page-footer font-small black" style="margin-top: 50%;">
+  <div class="footer-copyright text-center py-3">© 2021 Copyright: EasyEats.com
+  </div>
+</footer>
 </body>
+
 </html>
