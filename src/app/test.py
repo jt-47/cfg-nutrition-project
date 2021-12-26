@@ -6,7 +6,7 @@ from Recipe_class import Recipe
 from unittest import mock
 import unittest
 import requests
-"""When running the tests use this command: python -m unittest discover -s /Users/deeqam/Desktop/cfg_nutrition/cfg-nutrition-project/src/app"""
+"""When running the tests use this command: python3 -m unittest discover -s /Users/deeqam/Desktop/cfg_nutrition/cfg-nutrition-project/src/app"""
 
 class FlaskTests(unittest.TestCase):
 

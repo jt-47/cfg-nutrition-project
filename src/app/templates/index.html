@@ -10,15 +10,6 @@
   <title>Home Page</title>
 </head>
 <body>
-  <style>
-    /* *{margin: 0; padding: 0;}
-    .banner {position: relative; width: 90%; margin: auto;} */
-    /* .banner img{width: 100%;}
-    .heading {color: red; position: absolute; top: 50%; width: 100%; text-align: center;} */
-  </style>
-
-
-
   <nav class="navbar navbar-expand-sm bg-light navbar-light">
     <div class="container">
       <img class="two" src="./static/2.png" alt="" width="7%" style="margin-right: 10%;">
@@ -30,17 +21,6 @@
       </button>
       <div class="collapse navbar-collapse" >
         <ul class="navbar-nav ms-auto">
-         
-          <!-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#Menu" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Menu
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="templates/recipes.html">Recipes</a>
-              <a class="dropdown-item" href="#My Collection">My Collection</a>
-            </div> -->
-          <!-- </li> -->
-
           <li class="nav-item">
             <form action="/aboutus" method="GET">
             <a href="{{url_for('about_us')}}" class="nav-link">About Us</a>
@@ -55,7 +35,7 @@
       </div>
     </div>
   </nav>
-  <!-- "has-bg-img" -->
+
   <div class="banner">
         <img src="./static/berries.jpg" class="d-block w-100">
         <h2 class="heading">Welcome to EasyEats</h2>
@@ -78,43 +58,46 @@
           <input type="text" required autocomplete="off" name="usersfood" class="form-control" placeholder="Search ingredients" style="text-align: center;">
         </div>
 
-    <div class="form-group-col-md-4 my-2">
-    <select class="form-select" id="userdietary" name="userdietary">
-        <option selected style="text-align: center;">Dietary requirements</option>
-        <option value="Balanced">Balanced</option>
-        <option value="High-Fiber">High-Fiber</option>
-        <option value="High-Protein">High-Protein</option>
-        <option value="Low-carb">Low-carb</option>
-        <option value="Low-fat">Low-fat</option>
-        <option value="Low-sodium">Low-sodium</option>
-      </select>
-    </div>
+        <div class="form-group-col-md-4 my-2">
+        <select class="form-select" id="userdietary" name="userdietary">
+            <option selected style="text-align: center;">Dietary requirements</option>
+            <option value="Balanced">Balanced</option>
+            <option value="High-Fiber">High-Fiber</option>
+            <option value="High-Protein">High-Protein</option>
+            <option value="Low-carb">Low-carb</option>
+            <option value="Low-fat">Low-fat</option>
+            <option value="Low-sodium">Low-sodium</option>
+          </select>
+        </div>
  
-    <div class="form-group-col-md-4 my-2">
-    <select class="form-select" aria-label="Default select example" name="userhealth">
-        <option selected style="text-align: center;">Health</option>
-        <option value="Celery-free">Celery-free</option>
-        <option value="Crustacean-free">Crustacean-free</option>
-        <option value="Dairy-free">Dairy-free</option>
-        <option value="Egg-free">Egg-free</option>
-        <option value="Fish-free">Fish-free</option>
-        <option value="Gluten-free">Gluten-free</option>
-        <option value="Lupine-free">Lupine-free</option>
-        <option value="Mustard-free">Mustard-free</option>
-        <option value="Peanut-free">Peanut-free</option>
-        <option value="Sesame-free">Sesame-free</option>
-        <option value="Shellfish-free">Shellfish-free</option>
-        <option value="Soy-free">Soy-free</option>
-        <option value="Tree-Nut-free">Tree-Nut-free</option>
-        <option value="Wheat-free">Wheat-free</option>
-      </select>
+        <div class="form-group-col-md-4 my-2">
+        <select class="form-select" aria-label="Default select example" name="userhealth">
+            <option selected style="text-align: center;">Health</option>
+            <option value="Celery-free">Celery-free</option>
+            <option value="Crustacean-free">Crustacean-free</option>
+            <option value="Dairy-free">Dairy-free</option>
+            <option value="Egg-free">Egg-free</option>
+            <option value="Fish-free">Fish-free</option>
+            <option value="Gluten-free">Gluten-free</option>
+            <option value="Lupine-free">Lupine-free</option>
+            <option value="Mustard-free">Mustard-free</option>
+            <option value="Peanut-free">Peanut-free</option>
+            <option value="Sesame-free">Sesame-free</option>
+            <option value="Shellfish-free">Shellfish-free</option>
+            <option value="Soy-free">Soy-free</option>
+            <option value="Tree-Nut-free">Tree-Nut-free</option>
+            <option value="Wheat-free">Wheat-free</option>
+          </select>
+        </div>
 
-      <div class="form-group-col-md-4 my-2">
-        <label for="Allergy exclusion"></label>
-        <input type="text" name="userexclusion" class="form-control" placeholder="Exclude" style="text-align: center;">
-      </div>
-        <input type='submit'>
-    
+        <div class="form-group-col-md-4 my-2">
+          <label for="Allergy exclusion"></label>
+          <input type="text" required autocomplete="off" name="userexclusion" class="form-control" placeholder="Exclude" style="text-align: center;">
+        </div>
+
+        <div style="text-align: center;">
+          <input type="submit" class="btn btn-secondary btn-lg active">
+        </div>
     </form>
     </div>
   </form>

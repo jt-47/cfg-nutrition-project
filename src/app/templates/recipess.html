@@ -40,10 +40,10 @@
     <img src="{{hit.recipe.image}}" class="card-img-top" alt="..." ><br>
 
   
-<div class="nutrition-bubble-flat-value" style="background-image: linear-gradient(to top, rgb(228, 236, 236) 13%, rgb(245, 245, 245) 13%);">
+<!-- <div class="nutrition-bubble-flat-value" style="background-image: linear-gradient(to top, rgb(228, 236, 236) 13%, rgb(245, 245, 245) 13%);">
         <span class="value font-light"></span>
         <span class="label font-bold micro-text">Calories: {{ hit.recipe.calories|round}}</span>
-      </div>
+      </div> -->
 
       <div class="nutrition-bubble"
       style="background-image: linear-gradient(to top, rgb(228, 236, 236) 13%, rgb(245, 245, 245) 13%);">
@@ -63,7 +63,7 @@
 
 
       <div class="nutrition-bubble" style="background-image: linear-gradient(to top, rgb(228, 236, 236) 13%, rgb(245, 245, 245) 13%);">
-        <span class="label font-bold micro-caps">{{hit.recipe.totalNutrients.ENERC_KCAL.label }}: {{hit.recipe.totalNutrients.ENERC_KCAL.quantity|round }} {{hit.recipe.totalNutrients.ENERC_KCAL.unit }}</span>
+        <span class="label font-bold micro-caps">Calories: {{hit.recipe.totalNutrients.ENERC_KCAL.quantity|round }} {{hit.recipe.totalNutrients.ENERC_KCAL.unit }}</span>
         <span class="value font-light micro-text"></span>
       </div>
 
@@ -123,7 +123,7 @@
   <script
   src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"
 ></script>  
-<footer class="page-footer font-small black" style="margin-top: 50%;">
+<footer class="page-footer font-small black" style="margin-top: 610%;">
   <div class="footer-copyright text-center py-3">© 2021 Copyright: EasyEats.com
   </div>
 </footer>
