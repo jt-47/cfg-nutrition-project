@@ -1,7 +1,7 @@
 from unittest import mock
 from unittest import TestCase, main
 from Recipe_class import Recipe
-from CALL_API import CallAPI
+from Call_API import CallAPI
 
 class TestRecipeFunction(TestCase):
 
@@ -19,3 +19,6 @@ class TestRecipeFunction(TestCase):
         api = CallAPI("lemon", "gluten-free", "high-fiber", "sesame")
         api.call_api()
         self.assertEqual(api.response["from"], 21)
+
+
+    #can check the average rating

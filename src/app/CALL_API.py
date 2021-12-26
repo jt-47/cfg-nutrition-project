@@ -27,7 +27,7 @@ class CallAPI:
 
         hits=self.response['hits']
         return hits
-        
+
     def get_recipe_info(self):
 
         if self.response["hits"] == []:

@@ -29,12 +29,12 @@ class FlaskTests(unittest.TestCase):
         exp_nutrients = ['Energy: 1077.96 kcal', 'Fat: 34.38 g', 'Sugars: 0.02 g', 'Protein: 178.85 g', 'Vitamin C: 0.0 mg', 'Potassium: 2683.88 mg', 'Iron: 3.26 mg']
         self.assertEqual(exp_nutrients, nutrients)
 
-    # def test_api_status(self):
-    #     """check for a 200 response on index page, from value is always 21"""
-    #     """TypeError: __init__() missing 1 required positional argument: 'excluded'"""
-    #     api = CallAPI("lemon", "gluten-free", "high-fiber", "sesame")
-    #     api.call_api()
-    #     self.assertEqual(api.response["from"], 21)  #output returns AssertionError 1!=21
+    def test_api_status(self):
+        """check for a 200 response on index page, from value is always 21"""
+        """TypeError: __init__() missing 1 required positional argument: 'excluded'"""
+        api = CallAPI("lemon", "gluten-free", "high-fiber", "sesame")
+        api.call_api()
+        self.assertEqual(api.response["from"], 21)  #output returns AssertionError 1!=21
 
     def test_frontpage(self):
         """Test static frontpage"""
