@@ -16,7 +16,7 @@ class TestRecipeFunction(TestCase):
     # check for a 200 response on index page
     #from value is always 21
     def test_api_status(self):
-        api = CallAPI("lemon", "gluten-free", "high-fiber", "sesame")
+        api = CallAPI("maya", "lemon", "gluten-free", "high-fiber", "sesame")
         api.call_api()
         self.assertEqual(api.response["from"], 21)
 

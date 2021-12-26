@@ -157,3 +157,6 @@ class CallAPI:
         self.database = self.database[0:0]
 
         pd.read_csv("database.csv", index_col=0)[0:0].to_csv("database.csv")#not importing index in
+
+
+
