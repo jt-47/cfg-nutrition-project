@@ -2,8 +2,8 @@
 
 This project is a nutrition-based program that allows users to input their dietary preferences, nutritional restrictions (i.e. gluten-free, vegan, vegetarian, pork-free etc) and primary ingredients they would like to incorporate; and return suitable recipes that fit their criteria. Easy Eats will return 20 generated recipes that lists the key nutritional values and ingredients
 
-**Requirements to run this program:**
-To run this website the following need to be installed:
+**Install the following to run the program:**
+
 - pip install Flask
 - pip install templates
 - pip install requests
@@ -11,6 +11,11 @@ To run this website the following need to be installed:
 - pip install jinja2
 - pip install unittest
 - pip3 install Werkzeug
+
+APP_ID=''
+APP_KEY=''
+
+The APP_ID and APP_KEY are unique keys that can be generated on https://developer.edamam.com/
 
 # Website video demo
 
