@@ -23,22 +23,26 @@ def home():
 
     if request.method == 'GET':  #Sends a GET request to the server to display the hompage (/)
         return render_template("index.html")  
-
-    if request.method=='POST': #POST request is sent to the server to accept the inputted data
-        if 'usersfood' and 'userdietary' and 'userhealth' and 'userexclusion' in request.form:
+    try:
+        if request.method=='POST': #POST request is sent to the server to accept the inputted data
+            if 'usersfood' and 'userdietary' and 'userhealth' and 'userexclusion' in request.form:
+                    
+                query=request.form["usersfood"].lower()
+                diet=request.form['userdietary'].lower()
+                health=request.form['userhealth'].lower()
+                excluded=request.form['userexclusion'].lower()
+                api = CallAPI(query, health, diet, excluded)
+                hits= (api.call_api())  # The inputted data is sent to the api method to retrieve the data
                 
-            query=request.form["usersfood"].lower()
-            diet=request.form['userdietary'].lower()
-            health=request.form['userhealth'].lower()
-            excluded=request.form['userexclusion'].lower()
-            api = CallAPI(query, health, diet, excluded)
-            hits= (api.call_api())  # The inputted data is sent to the api method to retrieve the data
-            
-            return render_template('recipess.html',hits=hits)
+    except Exception as e:
+        print ('An internal error has occurred',e)
+        return render_template('500.html')
+    
+    return render_template('recipess.html',hits=hits)
 
 """User recipe rating"""
 """Aim was to call the database from the ask_user method and show it on the ratings.html page. 
-However we encountered a few errors. The database is visable through the main.py file"""
+However we encountered a few errors. The database is visable through the terminal folder"""
 
 # @app.route("/recipes/add", methods=['POST']) #POST request sent to accept the user inputs
 # def ratings():
@@ -50,11 +54,10 @@ However we encountered a few errors. The database is visable through the main.py
 #             name=request.form["name"]
 #             recipe=request.form["recipe"]
         
-#             ca=CallAPI(name,rating,review,name)
-#                 # if ca.ask_user.recipe_num == ca.ask_user.recipe_num:
+#             # ca=CallAPI(name,rating,review,name)
+#             return render_template('ratings.html')
 
 
-#         return render_template('ratings.html')
 
 @app.route("/aboutus", methods=['GET'])
 def about_us():
@@ -76,4 +79,4 @@ def not_found_error(error):
 
 
 if __name__== "__main__":
-    app.run()  #Remove the Debug=True when the flask app is finished to see the 500 error page
+    app.run(debug=True)  #Remove the Debug=True when the flask app is finished to see the 500 error page
