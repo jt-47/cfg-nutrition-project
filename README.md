@@ -38,3 +38,6 @@ https://user-images.githubusercontent.com/86624911/147414631-14ce3daf-6a5e-4486-
 
 
 https://user-images.githubusercontent.com/86624911/147418223-957041ba-b807-4000-9af2-85c1a4e5e3bb.mov
+
+Canva project presentation
+https://www.canva.com/design/DAE1Pa3aaAU/mMTD3gp0GKqwuceJ85-E7A/view?utm_content=DAE1Pa3aaAU&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink
