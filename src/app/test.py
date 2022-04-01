@@ -27,10 +27,7 @@ class FlaskTests(unittest.TestCase):
         nutrients = recipe.get_nutrients()
         exp_nutrients = ['Energy: 1077.96 kcal', 'Fat: 34.38 g', 'Sugars: 0.02 g', 'Protein: 178.85 g', 'Vitamin C: 0.0 mg', 'Potassium: 2683.88 mg', 'Iron: 3.26 mg']
         self.assertEqual(exp_nutrients, nutrients)
-
-
-    # check for a 200 response on index page
-    # from value is always 21
+        
     def test_api_status(self):
         api = CallAPI("maya", "lemon", "gluten-free", "high-fiber", "sesame")
         api.call_api()
