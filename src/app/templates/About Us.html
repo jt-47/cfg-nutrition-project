@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel='shortcut icon' href='./static/2.png' type='image/png'/ >
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="./static/style.css">
+  <title>About Us</title>
+  
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-sm bg-light navbar-light">
+    <div class="container">
+      <img class="two" src="./static/2.png" alt="" width="7%" style="margin-right: 10%;">
+      <form action="/" method="GET">
+        <a href="{{url_for('home')}}" class="navbar-brand">Home</a>
+        </form>
+      <!-- <a href="/Home page.html" class="navbar-brand">Nutrition</a> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" >
+        <ul class="navbar-nav ms-auto">
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#Menu" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Menu
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#Recipe">Recipes</a>
+              <a class="dropdown-item" href="#My Collection">My Collection</a>
+            </div>
+          </li> -->
+          <li class="nav-item">
+            <form action="/aboutus" method="GET">
+              <a href="{{url_for('about_us')}}" class="nav-link">About Us</a>
+              </form>
+            </li>
+            <li class="nav-item">
+              <form action="/contactus" method="GET">
+              <a href="{{url_for('contact_us')}}" class="nav-link">Contact Us</a>
+            </form>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="team text-center py-2">
+    <div class="container">
+      <div class="header my-5">
+        <h1>Meet Our Team </h1>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-3" style="margin-left: 7%;">
+          <div class="img-block mb-5">
+            <img src="./static/Amran.jpg" class="img-fluid  img-thumbnail rounded-circle" alt="image1">
+            <div class="content mt-2">
+              <h4>Amran Muse</h4>
+<<<<<<< HEAD
+              <p class="text-muted">Title</p>
+=======
+>>>>>>> main
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3" style="margin-left: 7%;">
+          <div class="img-block mb-5">
+            <img src="./static/Deeqa.jpg" class="img-fluid  img-thumbnail rounded-circle" alt="image1">
+            <div class="content mt-2">
+              <h4>Deeqa Mohamed</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3" style="margin-left: 7%;">
+          <div class="img-block mb-5">
+            <img src="./static/Mary.jpg" class="img-fluid  img-thumbnail rounded-circle" alt="image1">
+            <div class="content mt-2">
+              <h4>Mary-Dawn Onwusorom</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="break"></div> -->
+
+        <div class="col-md-6 col-lg-3" style="margin-left: 20%;">
+          <div class="img-block mb-5">
+            <img src="./static/Maya.jpg" class="img-fluid  img-thumbnail rounded-circle" alt="image1">
+            <div class="content mt-2">
+              <h4>Maya-Vani Mudgal</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" style="margin-left: 10%;">
+            <div class="img-block mb-5">
+              <img src="./static/Suad.jpg" class="img-fluid  img-thumbnail rounded-circle" alt="image1">
+              <div class="content mt-2">
+                <h4>Suad Mohamed</h4>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <footer class="page-footer font-small black">
+
+    <div class="footer-copyright text-center py-3">© 2021 Copyright: EasyEats.com
+      <!-- <a href="https://mdbootstrap.com/"> MDBootstrap.com</a> -->
+    </div>
+  
+  </footer>
